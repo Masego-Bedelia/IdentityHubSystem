@@ -1,0 +1,109 @@
+/* ===== Global layout ===== */
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #f1f5f9;
+}
+
+/* Layout container */
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+app-sidebar {
+  width: 240px;
+  background: #0b1a33;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+}
+
+/* Sidebar links */
+app-sidebar a {
+  color: #cfd8e3;
+  padding: 10px 24px;
+  text-decoration: none;
+  display: block;
+  border-radius: 4px;
+  margin: 2px 0;
+  transition: 0.2s;
+}
+
+app-sidebar a:hover {
+  background: #1a2a4d;
+  color: #fff;
+}
+
+/* Main content */
+.page-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  position: relative;
+  background: #f1f5f9;
+}
+
+/* Cards for content */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 24px;
+}
+
+/* Form controls */
+input, select, button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+button {
+  background: #0b1a33;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #142b56;
+}
+
+/* Page titles */
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+/* ===== Footer ===== */
+.app-footer {
+  height: 48px;
+  background: #0b1a33;
+  color: #cfd8e3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  font-size: 13px;
+  position: fixed;
+  bottom: 0;
+  left: 240px; /* match sidebar */
+  right: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-center {
+  opacity: 0.8;
+}
+
+/* Avoid content overlap with footer */
+.page-content {
+  padding-bottom: 70px;
+}

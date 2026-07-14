@@ -1,0 +1,38 @@
+<div class="registry-container">
+  <h2>Application Registry</h2>
+  
+  <!-- Form to add new App -->
+  <div class="form-card">
+    <h3>Register New System</h3>
+    <div class="form-group">
+      <input type="text" #appName placeholder="Client Name (e.g. HR Portal)" class="form-control">
+      <input type="text" #appUri placeholder="Redirect URI (e.g. http://localhost:4200/callback)" class="form-control">
+      <button (click)="saveApp(appName.value, appUri.value)" class="btn-primary">Register App</button>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Table to show registered Apps -->
+  <div class="list-card">
+    <h3>Connected Applications</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Client ID (Use this in project config)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (app of appService.appList(); track app.appId) {
+          <tr>
+            <td>{{ app.clientName }}</td>
+            <td><code>{{ app.clientId }}</code></td>
+            <td>{{ app.isActive ? 'Active' : 'Inactive' }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

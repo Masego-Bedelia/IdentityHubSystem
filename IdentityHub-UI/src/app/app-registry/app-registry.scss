@@ -1,0 +1,22 @@
+.registry-page {
+  padding: 2rem;
+  font-family: sans-serif;
+
+  .form-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    input { padding: 0.5rem; width: 300px; }
+    button { background: #004a99; color: white; border: none; padding: 0.5rem 1rem; cursor: pointer; }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+    th { background-color: #f4f4f4; }
+    code { background: #eee; padding: 4px; border-radius: 4px; }
+  }
+
+  .badge.active { color: green; font-weight: bold; }
+}

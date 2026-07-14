@@ -1,0 +1,36 @@
+<div class="registry-page">
+  <header>
+    <h1>Identity Hub: Application Registry</h1>
+  </header>
+
+  <section class="registration-form">
+    <h3>Register New Project</h3>
+    <div class="form-container">
+      <input type="text" [(ngModel)]="newApp.clientName" placeholder="Application Name (e.g. HR Portal)">
+      <input type="text" [(ngModel)]="newApp.redirectUri" placeholder="Callback URL (http://localhost:4200/callback)">
+      <button (click)="onSubmit()">Register System</button>
+    </div>
+  </section>
+
+  <section class="app-list">
+    <h3>Registered Systems</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>App Name</th>
+          <th>Client ID (Use in your Project Config)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (app of appService.appList(); track app.appId) {
+          <tr>
+            <td>{{ app.clientName }}</td>
+            <td><code>{{ app.clientId }}</code></td>
+            <td><span class="badge" [class.active]="app.isActive">Active</span></td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </section>
+</div>

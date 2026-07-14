@@ -1,0 +1,34 @@
+<div class="user-page">
+  <h2>User Management</h2>
+
+  <div class="user-select">
+    <label>User Email</label>
+    <input [(ngModel)]="email" placeholder="user@company.co.za" />
+    <button (click)="loadUser()">Load User</button>
+  </div>
+
+  @if (user()) {
+    <h3>{{ user()?.email }}</h3>
+
+    <div class="assignment">
+      <select [(ngModel)]="selectedAppId">
+        <option value="">Select Application</option>
+        @for (app of apps(); track app.appId) {
+          <option [value]="app.appId">{{ app.clientName }}</option>
+        }
+      </select>
+
+      <input [(ngModel)]="roleName" placeholder="Role (Admin, Viewer)" />
+      <button (click)="assignRole()">Assign Role</button>
+    </div>
+
+    <h4>Current Permissions</h4>
+    <ul>
+      @for (perm of permissions(); track perm.permissionId) {
+        <li>
+          {{ perm.appName }} → <strong>{{ perm.roleName }}</strong>
+        </li>
+      }
+    </ul>
+  }
+</div>
